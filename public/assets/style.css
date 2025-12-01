@@ -1,0 +1,237 @@
+:root{
+  --bg:#f7f7fb; --card:#ffffff; --accent:#0a84ff; --text:#222;
+  /* 顶部栏背景色，主题可通过修改此变量调整 */
+  --header-bg: linear-gradient(180deg,#fff, #f3f6ff);
+  --muted:#6b6b6b; --danger:#ff3b30;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+.container{padding:12px;max-width:1100px;margin:18px auto;}
+body{margin:0;background:var(--bg);color:var(--text);overflow-x:hidden;} 
+.header{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:var(--header-bg);box-shadow:0 1px 0 rgba(0,0,0,.05);}
+.title{font-size:18px;font-weight:600;}
+.controls{display:flex;gap:8px;align-items:center;}
+.btn{background:var(--card);border-radius:10px;padding:8px 12px;border:1px solid #eee;cursor:pointer;}
+.small{font-size:13px;padding:6px 8px;border-radius:8px;}
+.container{padding:12px;max-width:1100px;margin:18px auto;}
+
+/* month nav */
+.monthNav{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.monthLabel{font-weight:700;font-size:16px;}
+
+/* calendar grid (desktop) */
+.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;}
+.weekHead{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:6px;}
+.weekHead div{font-size:13px;text-align:center;color:var(--muted);}
+
+.daycard{background:var(--card);border-radius:10px;padding:10px;min-height:100px;box-shadow:0 2px 6px rgba(0,0,0,.03);cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;}
+.dayheader{display:flex;justify-content:space-between;align-items:center;}
+.dateCircle{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:600;}
+.today{background:linear-gradient(180deg,var(--accent),#0064d6);color:#fff;}
+.muted{color:var(--muted);font-size:12px;}
+.entryLine{font-size:13px;margin-top:6px;padding:6px;border-radius:8px;background:linear-gradient(90deg,#f8f9ff,#ffffff);display:flex;justify-content:space-between;align-items:center;}
+.summary{display:flex;gap:10px;font-size:13px;margin-top:8px;}
+
+/* modal */
+.modal{position:fixed;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,0.35);display:none;align-items:center;justify-content:center;padding:20px;z-index:999;}
+.modalOverlay{position:fixed;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,0.35);display:none;z-index:998;}
+.modalInner{width:100%;max-width:720px;background:var(--card);border-radius:12px;padding:16px;box-shadow:0 8px 30px rgba(0,0,0,.18);z-index:1000;}
+.row{display:flex;gap:8px;margin-bottom:10px;align-items:center;}
+.row .col{flex:1;}
+.input,select{width:100%;padding:8px;border-radius:8px;border:1px solid #e6e6e6;background:#fafafa;}
+.table{width:100%;border-collapse:collapse;margin-top:8px;}
+.table th,.table td{padding:8px;border-bottom:1px solid #f0f0f0;text-align:left;}
+.warn{color:var(--danger);font-weight:700;}
+.note{font-size:13px;color:var(--muted);}
+
+/* mobile specialized */
+.mobile .calendar{display:none;}
+.mobile .mobileView{display:block;}
+.desktop .mobileView{display:none;}
+.mobileView{padding:10px;}
+.cardCompact{background:var(--card);padding:10px;border-radius:10px;margin-bottom:10px;}
+
+/* 修复移动端顶部显示：标题允许缩略并让 controls 换行以避免按钮重叠 */
+.mobile .header { padding:10px 12px; }
+.mobile .header .title { flex:1 1 auto; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.mobile .controls { flex:0 0 auto; display:flex; gap:6px; flex-wrap:wrap; align-items:center; }
+
+/* date picker styling */
+.datepickerSection{display:flex;gap:16px;margin-bottom:16px;flex-wrap:wrap;align-items:flex-start;}
+.datepickerGroup{flex:1;min-width:200px;display:flex;flex-direction:column;gap:8px;}
+.datepickerLabel{font-weight:500;color:#333;font-size:14px;}
+.datepickerInput{padding:8px 12px;border:1.5px solid #ddd;border-radius:6px;background:#fafafa;font-size:14px;transition:all 0.3s ease;}
+.datepickerInput:focus{outline:none;border-color:#007aff;background:#fff;box-shadow:0 0 0 3px rgba(0,122,255,0.1);}
+.datepickerInput:blur{border-color:#ddd;background:#fafafa;}
+.dateRangeContainer{display:flex;gap:8px;align-items:center;}
+.dateRangeContainer .datepickerInput{flex:1;}
+.dateRangeSeparator{color:#999;font-weight:500;}
+.datepickerButton{background:#007aff;color:#fff;border:none;border-radius:6px;padding:8px 16px;font-weight:500;cursor:pointer;transition:background 0.3s ease;}
+.datepickerButton:hover{background:#0056b3;}
+
+/* vacation form styling */
+.vacationForm{background:#f9f9f9;padding:16px;border-radius:8px;margin-bottom:12px;display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;}
+.vacationField{display:flex;flex-direction:column;gap:4px;flex:1;min-width:140px;}
+.vacationLabel{font-weight:500;color:#333;font-size:13px;}
+.vacationInput{padding:8px 12px;border:1.5px solid #ddd;border-radius:6px;background:#fff;font-size:13px;transition:all 0.3s ease;}
+.vacationInput:focus{outline:none;border-color:#007aff;background:#fff;box-shadow:0 0 0 3px rgba(0,122,255,0.1);}
+.vacationButton{background:#28a745;color:#fff;border:none;border-radius:6px;padding:8px 16px;font-weight:500;cursor:pointer;transition:background 0.3s ease;}
+.vacationButton:hover{background:#218838;}
+
+/* responsive */
+@media (max-width:800px){
+  .container{padding:8px;}
+  .calendar{display:none;}
+  .weekHead{display:none;}
+  .mobileView{display:block;}
+  
+  .datepickerSection{flex-direction:column;gap:12px;}
+  .datepickerGroup{min-width:100%;}
+  .dateRangeContainer{flex-direction:column;gap:4px;}
+  .dateRangeContainer .datepickerInput{width:100%;}
+  
+  .vacationForm{flex-direction:column;gap:8px;}
+  .vacationField{width:100%;min-width:100%;}
+  .vacationButton{width:100%;}
+}
+
+/* 限制移动端输入尺寸，避免被 JS 或样式过度放大 */
+@media (max-width:800px) {
+  input, select, textarea, .input, .datepickerInput, .vacationInput {
+    padding: 8px !important;
+    min-height: 36px !important;
+    font-size: 14px !important;
+  }
+
+  /* 日详情里的表单：竖向堆叠以保证每项可见 */
+  .modalInner .row { flex-direction: column !important; align-items: stretch; }
+  .modalInner .row .col { width: 100% !important; }
+  .modalInner .row > div { width: 100% !important; }
+  .modalInner .row input, .modalInner .row select, .modalInner .row button {
+    width: 100% !important; box-sizing: border-box;
+  }
+
+  /* 减小卡片内间距，避免垂直堆叠占用过多空间 */
+  .modalInner { padding: 12px !important; }
+
+  /* 移动端 modal 不占满全屏，保留顶部空间并限制最大高度 */
+  .mobile .modal { align-items: flex-start; padding-top: 12px; }
+  .mobile .modalInner { width: calc(100% - 24px) !important; max-width: 100vw !important; max-height: calc(100vh - 48px) !important; height: auto !important; overflow: auto !important; border-radius: 8px !important; }
+}
+
+/* 桌面端强制输入框恢复默认大小，避免 JS 在非移动端放大 */
+@media (min-width:801px) {
+  input, select, textarea, .input, .datepickerInput, .vacationInput {
+    padding: 8px !important;
+    min-height: auto !important;
+  }
+}
+
+/* 更多按钮下拉样式（用于 header 溢出） */
+#moreToggle { display:none; position:relative; }
+#moreDropdownOverflow { display:none; position:absolute; right:0; top:36px; background:#fff; border:1px solid #ddd; padding:8px; border-radius:6px; box-shadow:0 4px 12px rgba(0,0,0,.1); z-index:1100; }
+#moreDropdownOverflow .item { margin-bottom:6px; }
+#moreDropdownOverflow .item:last-child { margin-bottom:0; }
+
+.controls { position: relative; }
+
+/* ========== 字体大小适配 ========== */
+:root {
+  --font-size-factor: 1;
+  --base-font-size: 14px;
+}
+
+/* 全局字体大小应用 */
+body {
+  font-size: calc(var(--base-font-size) * var(--font-size-factor));
+}
+
+h1 { font-size: calc(24px * var(--font-size-factor)); }
+h2 { font-size: calc(20px * var(--font-size-factor)); }
+h3 { font-size: calc(18px * var(--font-size-factor)); }
+h4 { font-size: calc(16px * var(--font-size-factor)); }
+
+/* 输入框字体大小 - 精确控制 */
+input,
+select,
+textarea,
+.input,
+.datepickerInput,
+.vacationInput {
+  font-size: calc(14px * var(--font-size-factor)) !important;
+  line-height: calc(1.5 * var(--font-size-factor));
+}
+
+/* 按钮字体大小 */
+.btn { font-size: calc(13px * var(--font-size-factor)) !important; }
+.small { font-size: calc(12px * var(--font-size-factor)) !important; }
+.btn.small { font-size: calc(12px * var(--font-size-factor)) !important; }
+
+/* 标签字体大小 */
+label {
+  font-size: calc(13px * var(--font-size-factor));
+}
+
+/* 表格字体大小 */
+.table th,
+.table td {
+  font-size: calc(13px * var(--font-size-factor));
+}
+
+/* 提示文字字体大小 */
+.note,
+.muted {
+  font-size: calc(12px * var(--font-size-factor));
+}
+
+/* 弹窗标题 */
+.modalInner h2,
+.modalInner h3 {
+  font-size: calc(18px * var(--font-size-factor));
+}
+
+/* ========== 深色模式 ========== */
+body.dark-mode {
+  background: var(--bg);
+  color: var(--text);
+}
+
+body.dark-mode .modal,
+body.dark-mode .modalInner {
+  background: var(--card);
+  color: var(--text);
+}
+
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+  background: var(--card);
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .table {
+  background: var(--card);
+  color: var(--text);
+}
+
+body.dark-mode .table th,
+body.dark-mode .table td {
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--text);
+}
+
+body.dark-mode .btn {
+  background: var(--card);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--text);
+}
+
+body.dark-mode .entryLine {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode #notificationContainer > div {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
